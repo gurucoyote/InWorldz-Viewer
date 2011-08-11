@@ -550,7 +550,55 @@ class DarwinManifest(ViewerManifest):
             self.path(self.info_plist_name(), dst="Info.plist")
 
             # copy additional libs in <bundle>/Contents/MacOS/
-            self.path("../../libraries/universal-darwin/lib_release/libndofdev.dylib", dst="MacOS/libndofdev.dylib")
+            # self.path("../../libraries/universal-darwin/lib_release/libndofdev.dylib", dst="MacOS/libndofdev.dylib")
+            # copy additional libs in <bundle>/Contents/MacOS/
+            if self.prefix(src="../../libraries/universal-darwin/lib_release", dst="MacOS/"):
+
+                self.path("libndofdev.dylib")
+                
+                self.path("libopenal.1.dylib")
+                self.path("libalut.0.dylib")
+
+                # self.path("libglib-2.0.dylib")
+                # self.path("libgmodule-2.0.dylib")
+                # self.path("libgobject-2.0.dylib")
+                # self.path("libgthread-2.0.dylib")
+                
+                # self.path("libgstreamer-0.10.dylib")
+                # self.path("libgstapp-0.10.dylib")
+                # self.path("libgstaudio-0.10.dylib")
+                # self.path("libgstbase-0.10.dylib")
+                # self.path("libgstcdda-0.10.dylib")
+                # self.path("libgstcontroller-0.10.dylib")
+                # self.path("libgstdataprotocol-0.10.dylib")
+                # self.path("libgstfft-0.10.dylib")
+                # self.path("libgstinterfaces-0.10.dylib")
+                # self.path("libgstnet-0.10.dylib")
+                # self.path("libgstnetbuffer-0.10.dylib")
+                # self.path("libgstpbutils-0.10.dylib")
+                # self.path("libgstriff-0.10.dylib")
+                # self.path("libgstrtp-0.10.dylib")
+                # self.path("libgstrtsp-0.10.dylib")
+                # self.path("libgstsdp-0.10.dylib")
+                # self.path("libgsttag-0.10.dylib")
+                # self.path("libgstvideo-0.10.dylib")
+
+                self.path("libxml2.2.dylib")
+                # self.path("libfaad.2.dylib")
+                # self.path("libFLAC.8.dylib")
+                # self.path("libintl.3.dylib")
+                # self.path("libjpeg.62.dylib")
+                # self.path("libpng12.0.dylib")
+                # self.path("libneon.27.dylib")
+                # self.path("libogg.0.dylib")
+                # self.path("liboil-0.3.0.dylib")
+                self.path("libopenjpeg.1.4.dylib")
+                # self.path("libtheora.0.dylib")
+                # self.path("libvorbis.0.dylib")
+                # self.path("libvorbisenc.2.dylib")
+                # self.path("libvorbisfile.3.dylib")
+
+                self.end_prefix("../../libraries/universal-darwin/lib_release")
 
             # most everything goes in the Resources directory
             if self.prefix(src="", dst="Resources"):
