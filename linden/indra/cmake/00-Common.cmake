@@ -138,7 +138,16 @@ if (LINUX)
     add_definitions(-Wno-parentheses)
   endif (${CXX_VERSION} GREATER 429)
 
-  # End of hacks.
+
+  # Silence certain types of compiler warnings, to prevent them from
+  # breaking compile (due to -Werror treating them as errors).
+
+  add_definitions(
+    -Wno-deprecated
+    -Wno-parentheses
+    -Wno-unused-variable
+    )
+
 
   add_definitions(
       -DLL_LINUX=1
